@@ -60,11 +60,7 @@ export class DivideCommand extends Command {
 
 export class Calculator {
   private commands: Command[] = [];
-  private currentValue = 0;
-
-  get _currentValue() {
-    return this.currentValue;
-  }
+  public currentValue = 0;
 
   constructor(initialValue: number) {
     this.currentValue = initialValue;

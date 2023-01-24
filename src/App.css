@@ -1,0 +1,16 @@
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 4rem);
+}
+
+.buttons button {
+  aspect-ratio: 1 / 1;
+}
+
+.input-mask {
+  position: relative;
+}
+
+.input-mask::after {
+  content: attr(data-content);
+}
