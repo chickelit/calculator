@@ -58,6 +58,16 @@ export class DivideCommand extends Command {
   }
 }
 
+export class PercentCommand extends Command {
+  constructor() {
+    super({
+      execute: CalculatorOperations.divide,
+      undo: CalculatorOperations.multiply,
+      value: 100,
+    });
+  }
+}
+
 export class Calculator {
   private commands: Command[] = [];
   public currentValue = 0;
@@ -77,6 +87,11 @@ export class Calculator {
 
     if (!command) return;
 
-    this.currentValue = command?.undo(this.currentValue, command.value);
+    this.currentValue = command!.undo(this.currentValue, command.value);
+  }
+
+  public reset() {
+    this.commands = [];
+		this.currentValue = 0;
   }
 }
